@@ -9,7 +9,7 @@ let userH1 = document.getElementById("greet-user");
 userH1.textContent = userName;
 
 //Task 4: read from localStorage productsInCart array (make sure to parse)
-let productsInCart = [];
+let productsInCart = JSON.parse(localStorage.getItem("productsInCarty"));
 
 //Note: this gets the ul for our products
 let productsUL = document.getElementById("cart-products");
@@ -27,27 +27,36 @@ function drawProducts(productsToDraw) {
         <img alt="duct tape" src="assets/duct-tape.png"/>
         <button onclick="removeFromCart(0)">Remove from cart</button> 
     </li>
-    */
+  */
 
-  for (let index = 0; index < productsToDraw.length; index++) {
-    let product = productsToDraw[index];
+  let totalPrice = 0;
+  for (let index = 0; index < productsToDraw.length - 1; index++) {
+    let product = productsToDraw[index];    
     let li = document.createElement("li");
+    li.setAttribute("class","productInCart")
     productsUL.appendChild(li);
     let h3 = document.createElement("h3");
     h3.textContent = product.title;
     li.appendChild(h3);
-    let p = document.createElement("p");
-    p.textContent = `$${product.price}`;
-    li.appendChild(p);
     let img = document.createElement("img");
     img.setAttribute("alt", product.title);
     img.setAttribute("src", product.picturePath);
     li.appendChild(img);
+    let p = document.createElement("p");
+    p.textContent = `$${product.price}`;
+    li.appendChild(p);
     let btn = document.createElement("button");
     btn.setAttribute("onclick", `removeFromCart(${index})`);
     btn.textContent = "Remove from cart";
     li.appendChild(btn);
+
+    //calculate total price
+    totalPrice += product.price;
   }
+
+  //Note: only update price text once all products added
+  let priceText = document.querySelector("#total-price")
+  priceText.textContent =`Total Price $${totalPrice}`
 }
 
 //Note: this invokes the drawProducts function when our page loads
@@ -58,6 +67,12 @@ function removeFromCart(i) {
   productsInCart = productsInCart.filter((value, index) => {
     return i !== index;
   });
+
+  //set localStorage to the newly updated list
+  localStorage.setItem('productsInCart', productsInCart);
+
   //Note: redraw products to screen...
   drawProducts(productsInCart);
+
+  alert('removed from cart');
 }
