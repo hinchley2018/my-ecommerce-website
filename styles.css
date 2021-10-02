@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+    margin:0;
+    padding:0;
+    
+}
+
+img {
+    height: 100px;
+    width: 100px;
+}
+#brand{
+    margin-left:80px;
+    padding:0;
+    font-size:30px;
+    color:white;
+    display:flex;
+    justify-content:flex-start;
+
+}
+.navbar{
+    height:100px;
+    
+}
+
+
+.name {
+  
+    color:white;
+    font-size:40px;
+      
+}
+#cart{
+   display:flex;
+    justify-content:space-between;
+    background:transparent;
+}

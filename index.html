@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Awesome e-commerce site</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" 
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+       
+        <link rel="stylesheet" href="./styles.css"/>
+    </head>
+       <body>
+
+        <nav class="navbar navbar-light bg-secondary">
+            <div>
+                <a class="navbar-brand" id="brand" href="#"></a>
+            </div>
+            <div>
+                <span class="name">Awesome E-commerce Site</span>
+            </div>
+            <div>
+                <a href="./cart.html" id="cart">
+                    <img alt="picture of shopping cart" src="assets/cart.jpg" style="height:50px;width:50px">
+                </a>
+            </div>
+        </nav>
+          
+      
+        <div>
+            <h1 id="greet-user"> </h1>
+            <!--Image borrowed from https://i.pinimg.com/originals/e7/68/b3/e768b31d7f2706bc4d6f052f85e8c2e5.jpg-->
+            <!-- <a href="./cart.html" id="cart">
+                <img alt="picture of shopping cart" src="assets/cart.jpg">
+            </a> -->
+            <p id="item-count"></p>
+        </div>
+        <h2>Select some products you would like to purchase</h2>
+
+        <ul id="products" class="products">
+            <li>
+                <h3>Duct tape</h3>
+                <p><b>$4.72</b></p>
+                <img alt="duct tape" src="assets/duct-tape.png" />
+                <button  class="btn btn-secondary" onclick="addToCart('Duct tape',4.72, 'assets/duct-tape.png')">Add to Cart</button>
+            </li>
+            <li>
+                <h3>Macbook Pro</h3>
+                <p><b>$2,599</b></p>
+                <img alt="Macbook pro" src="assets/macbookpro.png"/>
+                <button   class="btn btn-secondary" onclick="addToCart('Macbook Pro', 2,599,'assets/macbookpro.png')">Add to Cart</button>
+            </li>
+            <li>
+                <h3>Mouse</h3>
+                <p><b>$29.99</b></p>
+                <img alt="Gaming Mouse" src="assets/mouse.png"/>
+                <button  class="btn btn-secondary"  onclick="addToCart('Mouse',29.99,'assets/mouse.png')">Add to Cart</button>
+            </li>
+        </ul>
+        <script src="./index.js"></script>
+    </body>
+</html>
